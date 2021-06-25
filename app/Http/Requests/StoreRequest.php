@@ -6,9 +6,9 @@ use App\Http\Requests\CustomerInformationAttributeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * パスワード設定画面用リクエスト
+ * データ登録・メール送信処理用リクエスト
  */
-class PasswordRequest extends FormRequest
+class StoreRequest extends FormRequest
 {
     use CustomerInformationAttributeTrait;
 
@@ -28,8 +28,8 @@ class PasswordRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {return [];
-        return [
+    {
+        return[
             'password'              => 'required|min:8|confirmed',
             'password_confirmation' => 'required',
         ];

@@ -36,7 +36,7 @@
 				{{-- <form name="sentMessage" id="applicationForm" class="form-horizontal" action="/form/conf" method="post"> --}}
 				{{ Form::open([
 					'method' => 'post',
-					'url'    => route(),
+					'url'    => route('continuous_transition.confirm'),
 					'name'   => 'sentMessage',
 					'id'     => 'applicationForm',
 					'class'  => 'form-horizontal'
@@ -106,7 +106,7 @@
 							<h3 class="form-intitle">現住所(ご登録住所)</h3>
 							<div class="form-group">
 								<label class="col-md-3 col-sm-4 control-label">郵便番号<span class="form-icon-required">必須</span></label>
-								<div class="form-inline col-md-9 col-sm-8">						
+								<div class="form-inline col-md-9 col-sm-8">
 									<input type="text" name="zip1" value="{{ $customerInfo->zip1 }}" class="form-control input -col-post js_numOnry size_post" maxlength="3" id="user_zip1"><span>－</span>
 									<input type="text" name="zip2" value="{{ $customerInfo->zip2 }}" class="form-control input -col-post js_numOnry size_post" maxlength="4" id="user_zip2">
 									<button type="button" class="btn btn-primary" id="zip_btn"> 住所変換 </button>

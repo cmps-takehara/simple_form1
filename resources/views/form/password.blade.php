@@ -32,27 +32,15 @@
 						<a href="#" class="bs-wizard-dot"></a>
 					</div>
 				</div>
-				
+
 				<!-- Form itself -->
-				<form name="sentMessage" id="applicationForm" class="form-horizontal" action="/form/complete" method="post">
-				@csrf
-				<input type ="hidden"  name="name_sei" value="{{$form_data['name_sei']}}">
-				<input type ="hidden"  name="name_mei" value="{{$form_data['name_mei']}}">
-				<input type ="hidden"  name="name_sei_kana" value="{{$form_data['name_sei_kana']}}">
-				<input type ="hidden"  name="name_mei_kana" value="{{$form_data['name_mei_kana']}}">
-				<input type ="hidden"  name="birthday_y" value="{{$form_data['birthday_y']}}">
-				<input type ="hidden"  name="birthday_m" value="{{$form_data['birthday_m']}}">
-				<input type ="hidden"  name="birthday_d" value="{{$form_data['birthday_d']}}">
-				<input type ="hidden"  name="tel1" value="{{$form_data['tel1']}}">
-				<input type ="hidden"  name="tel2" value="{{$form_data['tel2']}}">
-				<input type ="hidden"  name="tel3" value="{{$form_data['tel3']}}">
-				<input type ="hidden"  name="email" value="{{$form_data['email']}}">
-				<input type ="hidden"  name="zip1" value="{{$form_data['zip1']}}">
-				<input type ="hidden"  name="zip2" value="{{$form_data['zip2']}}">
-				<input type ="hidden"  name="adr1" value="{{$form_data['adr1']}}">
-				<input type ="hidden"  name="adr2" value="{{$form_data['adr2']}}">
-				<input type ="hidden"  name="adr3" value="{{$form_data['adr3']}}">
-				<input type ="hidden"  name="adr4" value="{{$form_data['adr4']}}">
+				{{ Form::open([
+					'method' => 'post',
+					'url'    => route('continuous_transition.store'),
+					'name'   => 'sentMessage',
+					'id'     => 'applicationForm',
+					'class'  => 'form-horizontal'
+				]) }}
 				<!-- @if(count($errors) > 0)
 					<ul>
 						@foreach($errors->all() as $error)
@@ -70,7 +58,7 @@
 					@endif
 						<header class="panel-heading form-heading">パスワード設定</header>
 						<div class="panel-body form-body" id="js_showPass">
-							
+
 							<div class="form-group">
 								<label class="col-sm-3 control-label">パスワード</label>
 								<div class="col-sm-6">
@@ -89,19 +77,19 @@
 									<a href="#">表示する</a>
 								</div>
 							</div>
-							
 						</div>
 					</section>
 					<div class="text-center submit-area">
 						<button type="button" class="btn btn-default btn-lg pull-left" onclick="history.back();">戻る</button>
 						<button type="submit" class="btn btn-primary btn-lg">パスワードを設定する</button>
 					</div>
+					@foreach($customerInfo as $key => $value)
+					<input type ="hidden"  name="{{ $key }}" value="{{ $value }}">
+					@endforeach
+				{{ Form::close() }}
 				</form>
-				
 			</div>
 		</div>
-		
 	</section>
-	
 </div>
 @endsection

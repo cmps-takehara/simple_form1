@@ -6,7 +6,7 @@ use App\Http\Requests\IndexRequest;
 use App\Http\Requests\ConfirmRequest;
 use App\Http\Requests\PasswordRequest;
 use App\Http\Requests\StoreRequest;
-use App\Models\Person;
+use App\Models\CustomerInformation;
 use Hash;
 
 /**
@@ -64,7 +64,7 @@ class ContinuousTransitionController extends Controller
         // 完了画面へリダイレクト
         return redirect()->route('continuous_transition.complete');
     }
-    
+
 
     /**
      * 登録完了画面

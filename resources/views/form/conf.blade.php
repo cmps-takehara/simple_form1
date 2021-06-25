@@ -35,7 +35,7 @@
 				<!-- Form itself -->
 				{{ Form::open([
 					'method' => 'post',
-					'url'    => route(),
+					'url'    => route('continuous_transition.password'),
 					'name'   => 'sentMessage',
 					'id'     => 'applicationForm',
 					'class'  => 'form-horizontal'
@@ -59,50 +59,50 @@
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">生年月日</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['birthday_y']}}年{{$form_data['birthday_m']}}月{{$form_data['birthday_d']}}日
+									{{ $customerInfo->birthday_y }}年{{ $customerInfo->birthday_m }}月{{ $customerInfo->birthday_d }}日
 								</div>
 							</div>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">TEL</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['tel1']}}-{{$form_data['tel2']}}-{{$form_data['tel3']}}
+									{{ $customerInfo->tel1 }}-{{ $customerInfo->tel2 }}-{{ $customerInfo->tel3 }}
 								</div>
 							</div>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">メールアドレス</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['email']}}
+									{{ $customerInfo->email }}
 								</div>
 							</div>
 							<h3 class="form-intitle">現住所(ご登録住所)</h3>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">郵便番号</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['zip1']}}-{{$form_data['zip2']}}
+									{{ $customerInfo->zip1 }}-{{ $customerInfo->zip2 }}
 								</div>
 							</div>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">都道府県</label>
 								<div class="col-sm-5">
-									{{$form_data['adr1']}}
+									{{ $customerInfo->adr1 }}
 								</div>
 							</div>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">市区町村</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['adr2']}}
+									{{ $customerInfo->adr2 }}
 								</div>
 							</div>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">住所（番地）</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['adr3']}}
+									{{ $customerInfo->adr3 }}
 								</div>
 							</div>
 							<div class="form-group form-conf">
 								<label class="col-md-3 col-sm-4 control-label">建物</label>
 								<div class="col-md-9 col-sm-8">
-									{{$form_data['adr4']}}
+									{{ $customerInfo->adr4 }}
 								</div>
 							</div>
 						</div>
@@ -117,8 +117,8 @@
 				{{ Form::close() }}
 			</div>
 		</div>
-		
+
 	</section>
-	
+
 </div>
 @endsection

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/form/index');
 });
+
 Route::prefix('continuous_transition')->group(function () {
     Route::get('/',                           'ContinuousTransitionController@index')   ->name('continuous_transition.index');
     Route::match(['get', 'post'], 'confirm',  'ContinuousTransitionController@confirm') ->name('continuous_transition.confirm');
@@ -24,7 +25,8 @@ Route::prefix('continuous_transition')->group(function () {
     Route::post('store',                      'ContinuousTransitionController@store')   ->name('continuous_transition.store');
     Route::get('complete',                    'ContinuousTransitionController@complete')->name('continuous_transition.complete');
 });
-Route::get('/','App\Http\Controllers\HomeController@index');
-Route::match(['get', 'post'], '/form/conf', 'App\Http\Controllers\HomeController@conf');
-Route::match(['get','post'], '/form/password', 'App\Http\Controllers\HomeController@password');
-Route::post('/form/complete', 'App\Http\Controllers\HomeController@complete_post');
+
+// Route::get('/','HomeController@index');
+// Route::match(['get', 'post'], '/form/conf', 'HomeController@conf');
+// Route::match(['get','post'], '/form/password', 'HomeController@password');
+// Route::post('/form/complete', 'HomeController@complete_post');
